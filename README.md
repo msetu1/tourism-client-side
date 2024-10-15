@@ -3,6 +3,6 @@ Explore the world's most stunning destinations with us. Your adventure begins he
 
 
 ## Client side Live link :  
-(https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
+https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md
 ## Server side Live link : 
-(https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
+https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md
