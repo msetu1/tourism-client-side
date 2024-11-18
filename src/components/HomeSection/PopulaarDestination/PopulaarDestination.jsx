@@ -10,7 +10,6 @@ const PopularDestination = () => {
     .then(res=>res.json()
   .then(data=>setCountry(data)))
   },[])
-console.log(country);
   return (
     <div className="lg:max-w-7xl mx-auto px-5 md:px-10 lg:px-0 lg:mb-32 md:mb-16 mb-10">
       <h2 className="mb-8 text-2xl lg:text-4xl md:text-3xl font-bold">Our Popular <span className="text-[#22d3ee]">Destinations</span> </h2>

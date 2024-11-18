@@ -10,25 +10,6 @@ const Gallery = () => {
         headerText={"Explore destinations around the globe"}
         subText={"Gallery"}
       />
-
-      {/* <div
-        className="hero min-h-[600px]"
-        style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/6016756/pexels-photo-6016756.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-        }}
-      >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-neutral-content text-center">
-          <div className="">
-            <h1 className="mb-5 text-5xl font-bold">
-              Showcasing beautiful tourist spots
-            </h1>
-            <p></p>
-          </div>
-        </div>
-      </div> */}
-
       <div className="lg:max-w-7xl mx-auto px-5 md:px-10 lg:px-0 my-20">
         <h2 className="text-2xl lg:text-4xl md:text-3xl font-bold text-gray-700 mb-3">
           Travels <span className="text-[#22d3ee]">Gallery ! </span>

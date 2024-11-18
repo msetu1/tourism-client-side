@@ -5,7 +5,7 @@ import CommonBanner from "../../Shared/CommonBanner";
 
 
 const DestinationDetails = () => {
-  const [country, setCountry] = useState([]);
+const [country, setCountry] = useState([]);
 const {id}=useParams();
 const idInt=parseInt(id);
 

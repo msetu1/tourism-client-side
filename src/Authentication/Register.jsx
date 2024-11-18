@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import { Link} from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -24,46 +24,25 @@ const Register = () => {
 
     // password validation
     if (password.length < 6) {
-      return Swal.fire({
-        title: "Error!",
-        text: "Please password must be at least 6 characters",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
+      return toast.error("Please password must be at least 6 characters");
     } else if (!/[A-Z]/.test(password)) {
-      return Swal.fire({
-        title: "Error!",
-        text: "Your password have at least one upper case characters",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
+      return toast.error(
+        "Your password have at least one upper case characters"
+      );
     } else if (!/[a-z]/.test(password)) {
-      return Swal.fire({
-        title: "Error!",
-        text: "Your password have at least one lower case characters",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
+      return toast.error(
+        "Your password have at least one lower case characters"
+      );
     }
 
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        Swal.fire({
-          title: "Success",
-          text: "User Register successfully",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
+        toast.success("User Register successfully");
       })
       .catch((error) => {
         console.error(error);
-        Swal.fire({
-          title: "Error!",
-          text: "Something went wrong!!",
-          icon: "error",
-          confirmButtonText: "Ok",
-        });
+        toast.error("Something went wrong!!");
       });
   };
 

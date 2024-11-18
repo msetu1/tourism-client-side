@@ -1,18 +1,18 @@
 import { useContext, useState } from "react";
 import { BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
-import { FaGoogle } from "react-icons/fa";
-import { TbBrandGithubFilled } from "react-icons/tb";
 import { AuthContext } from "../Provider/AuthProvider";
-import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn,} = useContext(AuthContext);
   // password
   const [showPassword, setShowPassword] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
+
+
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -23,12 +23,8 @@ const Login = () => {
     const accepted = form.terms.checked;
 
     if (!accepted) {
-      return Swal.fire({
-        title: "Error!",
-        text: "Please Accept remember me",
-        icon: "error",
-        confirmButtonText: "Ok",
-      });
+      return toast.error("Please Accept remember me");
+      
     }
     signIn(email, password, accepted)
       .then((result) => {
@@ -36,21 +32,11 @@ const Login = () => {
 
         // navigate
         navigate(location?.state ? location.state : "/");
-        Swal.fire({
-          title: "Success",
-          text: "User Logged is successfully",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
+        toast.success("User Logged is successfully");
       })
       .catch((error) => {
         console.error(error);
-        Swal.fire({
-          title: "Error!",
-          text: "Invalid email and password",
-          icon: "error",
-          confirmButtonText: "Ok",
-        });
+        toast.error("Invalid email and password");
       });
   };
 
@@ -114,7 +100,7 @@ const Login = () => {
                 <span className="text-[#5B5B5B]">Remember Me</span>
               </label>
             </div>
-            {/* forgate password  */}
+            {/* forgot password  */}
             <a
               //   onClick={handleForgotPassword}
               href="#"
@@ -122,19 +108,6 @@ const Login = () => {
             >
               Forgot Password?
             </a>
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-xl font-bold mb-5">On the other hand !!</h2>
-          <div className="flex items-center gap-5">
-            <button className="bg-[#a5f3fc] flex items-center gap-3 justify-center px-8 py-3 rounded-full font-bold">
-              <FaGoogle className="text-xl text-red-600 " /> <span>google</span>
-            </button>
-            <button className="bg-[#a5f3fc] flex items-center gap-3 justify-center px-8 py-3 rounded-full font-bold">
-              <TbBrandGithubFilled className="text-xl text-[#38bdf8] " />{" "}
-              <span>git hub</span>
-            </button>
           </div>
         </div>
 

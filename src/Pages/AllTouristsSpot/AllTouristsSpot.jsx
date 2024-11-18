@@ -24,7 +24,7 @@ const AllTouristsSpot = () => {
       {allTourism?.length === 0 ? (
         <div className="max-w-7xl flex items-center justify-center mx-auto h-[80vh]">
           <img
-            className="h-full"
+            className="h-full "
             src="https://i.ibb.co/3FVgSYq/3009287.jpg"
             alt=""
           />

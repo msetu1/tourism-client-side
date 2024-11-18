@@ -7,8 +7,9 @@ import {
     signInWithEmailAndPassword,
     signOut,
   } from "firebase/auth";
+
+export const AuthContext=createContext(null);
 const auth = getAuth(app);
-export const AuthContext=createContext(null)
 const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null);
     const [loading,setLoading]=useState(true)
@@ -18,6 +19,7 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return createUserWithEmailAndPassword( auth,email,password)
     }
+
 
     // login 
     const signIn=(email,password)=>{
@@ -46,7 +48,7 @@ const AuthProvider = ({children}) => {
         loading,
         createUser,
         signIn,
-        logOut
+        logOut,
 
     }
     return (
