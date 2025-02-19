@@ -52,13 +52,16 @@ const Updated = ({ touristSpot }) => {
       email,
     };
     console.log(info);
-    fetch(`http://localhost:5000/updateCard/${touristSpot?._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(info),
-    })
+    fetch(
+      `https://tourism-client-server.vercel.app/updateCard/${touristSpot?._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(info),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount === 1) {

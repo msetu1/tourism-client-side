@@ -3,23 +3,22 @@ import { useParams } from "react-router-dom";
 import DestinationTabs from "../../Ui/DestinationTabs/DestinationTabs";
 import CommonBanner from "../../Shared/CommonBanner";
 
-
 const DestinationDetails = () => {
-const [country, setCountry] = useState([]);
-const {id}=useParams();
-const idInt=parseInt(id);
+  const [country, setCountry] = useState([]);
+  const { id } = useParams();
+  const idInt = parseInt(id);
 
-useEffect(() => {
-    fetch("http://localhost:5000/allCountries")
+  useEffect(() => {
+    fetch("https://tourism-client-server.vercel.app/allCountries")
       .then((res) => res.json())
       .then((data) => setCountry(data))
       .catch((error) => console.error("Error fetching country data:", error));
   }, []);
-const travel = country?.find((item) => item.id === idInt);
-console.log(travel);
+  const travel = country?.find((item) => item.id === idInt);
+  console.log(travel);
   return (
     <div className="mb-20">
-      <CommonBanner headerText={'Your Destination Details'}/>
+      <CommonBanner headerText={"Your Destination Details"} />
       <div className="container-class flex gap-5">
         <div className="w-full lg:w-[50%] ">
           <img className="rounded-xl" src={travel?.image} alt="" />

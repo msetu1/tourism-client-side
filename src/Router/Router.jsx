@@ -16,14 +16,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
         element: <Home />,
-        loader:()=>fetch('http://localhost:5000/allTourists'),
-        
-
+        loader: () =>
+          fetch("https://tourism-client-server.vercel.app/allTourists"),
       },
       {
         path: "gallery",
@@ -55,19 +54,21 @@ const router = createBrowserRouter([
       },
       {
         path: "all-tourists-spot",
-        element:<AllTouristsSpot />,
-        loader:()=>fetch('http://localhost:5000/allTourists')
+        element: <AllTouristsSpot />,
+        loader: () =>
+          fetch("https://tourism-client-server.vercel.app/allTourists"),
       },
       {
         path: "tourists-details/:id",
-        element:<PrivateRoute>
-          <TouristsDetails />
-        </PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <TouristsDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "update/:id",
-        element:
-          <Updated />
+        element: <Updated />,
       },
     ],
   },

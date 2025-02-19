@@ -51,7 +51,7 @@ const AddTouristsSpot = () => {
       email,
     };
     console.log(newTourists);
-    fetch("http://localhost:5000/addTourists", {
+    fetch("https://tourism-client-server.vercel.app/addTourists", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -74,8 +74,7 @@ const AddTouristsSpot = () => {
   return (
     <div className="pt-28 max-w-4xl mx-auto mb-5">
       <Helmet>
-        <title> Add Tourists Spot | rf Travels
-        </title>
+        <title> Add Tourists Spot | rf Travels</title>
       </Helmet>
       <div className="p-6">
         <h1 className=" text-2xl font-bold mb-5"> Add Tourists Spot !!</h1>

@@ -6,20 +6,20 @@ import BookNow from "../../Ui/BookNow/BookNow";
 import DetailsTable from "../../Ui/DetailsTable/DetailsTable";
 
 const TouristsDetails = () => {
-    const {id}=useParams();
-    
-    const [card,setCard]=useState([])
-    useEffect(()=>{
-        fetch(`http://localhost:5000/singleCard/${id}`)
-        .then(res=>res.json())
-        .then(data=>{
-            setCard(data)
-            console.log(data);
-        })
-    },[id])
-    return (
-        <div className="lg:mb-20">
-            <div>
+  const { id } = useParams();
+
+  const [card, setCard] = useState([]);
+  useEffect(() => {
+    fetch(`https://tourism-client-server.vercel.app/singleCard/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCard(data);
+        console.log(data);
+      });
+  }, [id]);
+  return (
+    <div className="lg:mb-20">
+      <div>
         <figure className="overflow-hidden  relative mb-5 h-[45%]">
           <img
             className="w-full h-[540px] object-cover rounded group-hover:scale-[1.1] transition-all duration-500 ease-in-out"
@@ -33,9 +33,7 @@ const TouristsDetails = () => {
       </div>
       <div className="mt-20 container-class">
         <div className="">
-          <h2 className="text-5xl font-bold mb-3">
-            {card.tourists_spot_name}
-          </h2>
+          <h2 className="text-5xl font-bold mb-3">{card.tourists_spot_name}</h2>
           <h2 className="text-gray-500 font-medium flex items-center gap-1 mb-4">
             <FaLocationDot className="text-2xl text-[#22d3ee]" />{" "}
             {card.location} Division
@@ -47,7 +45,7 @@ const TouristsDetails = () => {
           <div className="w-full lg:w-[60%]  drop-shadow-lg">
             <DetailsTable card={card}></DetailsTable>
             <div className="mt-20 ">
-                <GoogleMap></GoogleMap>
+              <GoogleMap></GoogleMap>
             </div>
           </div>
           <div className="w-full lg:w-[40%] ">
@@ -55,8 +53,8 @@ const TouristsDetails = () => {
           </div>
         </div>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default TouristsDetails;
